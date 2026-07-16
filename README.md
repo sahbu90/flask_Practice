@@ -83,7 +83,7 @@ flask_Practice/
 ```bash
 git clone https://github.com/sahbu90/flask_Practice.git
 
-cd CI-CD-Project
+cd flask_Practice
 ```
 
 ---
