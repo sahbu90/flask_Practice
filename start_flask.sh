@@ -1,22 +1,19 @@
 #!/bin/bash
-cd ~/flask_Practice
 
-# Create venv if not exists
-if [ ! -d venv ]; then
-    python3 -m venv venv
-fi
+echo "========== Deploying Flask Application =========="
 
-# Activate venv
+# Go to Jenkins workspace
+cd "$WORKSPACE" || exit 1
+
+# Activate virtual environment
 source venv/bin/activate
 
-# Upgrade pip and install dependencies
-sudo apt update
-sudo apt install python3-pip -y
-sudo pip install --upgrade pip
-sudo pip install -r requirements.txt black pylint bandit pytest pytest-html
+# Stop old Flask process (if running)
+pkill -f "python.*app.py" || true
 
-# Ensure .env exists
-echo -e "MONGO_URI=mongodb+srv://mohan:Herovired123@herovired.f3do4.mongodb.net/studentDB\nSECRET_KEY=your-secret-key" > .env
+# Start Flask app in background
+nohup python app.py > flask.log 2>&1 &
 
-# Run app
-sudo nohup python3 app.py --host=0.0.0.0 --port=5000 > flask.log 2>&1 &
+sleep 5
+
+echo "========== Deployment Successful =========="
