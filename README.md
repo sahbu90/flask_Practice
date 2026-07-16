@@ -1,134 +1,560 @@
-# Student Registration System
+# Flask Student Management Application
 
-A simple **Flask** web application to manage student records with **MongoDB** as the backend database. Users can **add, view, update, and delete** student details.
+A Flask-based CRUD web application for managing student records using MongoDB Atlas.
+
+This project demonstrates complete CI/CD implementation using both **Jenkins** and **GitHub Actions**.
+
+---
+# Combined Architecture of CI/CD Pipeline using Jenkins and Github Actions
+                 Developer
+                     │
+                 Git Push
+                     │
+                     ▼
+            GitHub Repository
+             │              │
+     Webhook │              │ GitHub Events
+             ▼              ▼
+         Jenkins      GitHub Actions
+             │              │
+        Build/Test/Deploy   │
+             └──────┬────────┘
+                    ▼
+            Flask Application
+                    │
+                    ▼
+          Notification / Deployment
+
+# Tech Stack
+
+- Python 3.9
+- Flask
+- MongoDB Atlas
+- PyMongo
+- Git & GitHub
+- GitHub Actions
+- Jenkins
+- AWS EC2 (Amazon Linux 2023)
+- Linux Shell
 
 ---
 
-## Features
+# Project Structure
 
-* List all students on the home page
-* Add a new student
-* Update existing student details
-* Delete a student with confirmation
-* Simple and responsive UI using Bootstrap
-
----
-
-## Tech Stack
-
-* **Backend:** Python, Flask
-* **Database:** MongoDB (via Flask-PyMongo)
-* **Frontend:** HTML, Jinja2 templates, Bootstrap 5
-* **Environment Variables:** Managed via `.env` file
-
----
-
-## Setup Instructions
-
-### 1. Clone the repository
-
-```bash
-git clone <your-repo-url>
-cd <repo-folder>
+```
+flask_Practice/
+│
+├── app.py
+├── requirements.txt
+├── test_app.py
+├── start_flask.sh
+├── Jenkinsfile
+│
+├── templates/
+│     ├── index.html
+│     ├── add.html
+│     └── update.html
+│
+├── .github/
+│    └── workflows/
+│         └── ci-cd.yml
+│
+└── README.md
 ```
 
-### 2. Create and activate a virtual environment
+---
+
+# Features
+
+- Add Student
+- Update Student
+- Delete Student
+- View Students
+- MongoDB Atlas Integration
+- Automated Testing
+- CI/CD Pipeline
+- Staging Deployment
+- Production Deployment
+
+---
+
+# Clone Repository
 
 ```bash
-python -m venv venv
-# Activate venv
-# Windows:
-venv\Scripts\activate
-# Linux / Mac:
+git clone https://github.com/sahbu90/flask_Practice.git
+
+cd CI-CD-Project
+```
+
+---
+
+# Create Virtual Environment
+
+Linux
+
+```bash
+python3 -m venv venv
+
 source venv/bin/activate
 ```
 
-### 3. Install dependencies
+Windows
+
+```bash
+python -m venv venv
+
+venv\Scripts\activate
+```
+
+---
+
+# Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**`requirements.txt` example:**
+---
 
-```
-Flask
-Flask-PyMongo
-python-dotenv
-bson
-```
+# Environment Variables
 
-### 4. Configure environment variables
+Create a `.env` file.
 
-Create a `.env` file in the project root:
+```env
+MONGO_URI=your_mongodb_connection_string
 
-```
-MONGO_URI=<your-mongodb-connection-string>
-SECRET_KEY=<your-secret-key>
+SECRET_KEY=your_secret_key
 ```
 
-### 5. Run the application
+Example
+
+```env
+MONGO_URI=mongodb+srv://db_user:password@cluster.mongodb.net/mydb?retryWrites=true&w=majority
+
+SECRET_KEY=flask_secret_key
+```
+
+---
+
+# Run Application
 
 ```bash
 python app.py
 ```
 
-Open your browser at: [http://localhost:8000](http://localhost:8000)
-
----
-
-## Project Structure
+Application runs on
 
 ```
-project/
-│
-├── templates/
-│   ├── base.html
-│   ├── index.html
-│   ├── add_student.html
-│   ├── update_student.html
-│
-├── app.py
-├── requirements.txt
-└── .env
+http://localhost:5000
 ```
 
 ---
 
-## Screenshots
+# Run Tests
 
-**Home Page**
-Lists all students with Edit/Delete buttons.
-- <img width="1902" height="607" alt="image" src="https://github.com/user-attachments/assets/a58a6a6d-4978-4769-8074-232e4d31e69d" />
-
-
-**Add Student**
-Form to add a new student.
-- <img width="1897" height="801" alt="image" src="https://github.com/user-attachments/assets/d65d25c3-ebb5-410a-adb1-e130ad7c5878" />
-
-
-**Update Student**
-Form pre-filled with student details.
-- <img width="1905" height="897" alt="image" src="https://github.com/user-attachments/assets/04febf01-879f-431f-ab07-abcfb993acf1" />
-
-
+```bash
+pytest -v
+```
 
 ---
 
-## Notes
+# Jenkins CI/CD Pipeline
 
-* Make sure MongoDB is running and accessible via the URI in `.env`
-* Delete action includes a confirmation page to prevent accidental deletion
-* Uses `ObjectId` from `bson` to work with MongoDB document IDs
-* If you use MongoDB Atlas on macOS, install dependencies again (`pip install -r requirements.txt`). This project now uses `certifi` CA bundle explicitly to avoid common TLS certificate verification failures with `pymongo`.
+## Objective
 
----
-
-## License
-
-MIT License
+Automate Build, Test and Deployment using Jenkins.
 
 ---
 
+## Jenkins Pipeline Stages
 
+- Clone Repository
+- Install Dependencies
+- Run Unit Tests
+- Code Quality Checks
+- Build Application
+- Deploy Application
+- Email Notification
 
+---
+
+## Jenkins Plugins Used
+
+- Git
+- Pipeline
+- Email Extension
+- Workspace Cleanup
+
+---
+
+## Jenkins Credentials
+
+### GitHub Credentials
+
+```
+github-creds
+```
+
+Contains
+
+- GitHub Username
+- GitHub Personal Access Token
+
+---
+
+### Gmail Credentials
+
+```
+gmail-creds
+```
+
+Used for Email Notification.
+
+---
+
+## Jenkins Environment Variables
+
+```
+MONGO_URI
+
+SECRET_KEY
+```
+
+---
+
+## Jenkins Build Trigger
+
+Manual Build
+
+or
+
+GitHub Webhook
+
+---
+
+## Jenkins Deployment
+
+Deploys Flask Application on AWS EC2 (Amazon Linux 2023)
+
+---
+
+# GitHub Actions CI/CD Pipeline
+
+Workflow File
+
+```
+.github/workflows/ci-cd.yml
+```
+
+---
+
+## Pipeline Triggers
+
+### Push to Main
+
+```
+Build
+
+Test
+```
+
+---
+
+### Push to Staging
+
+```
+Build
+
+Test
+
+Deploy to Staging
+```
+
+---
+
+### GitHub Release
+
+```
+Build
+
+Test
+
+Deploy to Production
+```
+
+---
+
+# Workflow Jobs
+
+## Build and Test
+
+- Checkout Code
+- Setup Python
+- Install Dependencies
+- Run Pytest
+- Build Application
+
+---
+
+## Deploy to Staging
+
+Runs only when
+
+```
+staging branch
+```
+
+Tasks
+
+- Checkout Repository
+- Load GitHub Secrets
+- Deploy Flask Application
+
+---
+
+## Deploy to Production
+
+Runs only when
+
+```
+GitHub Release is published
+```
+
+Tasks
+
+- Checkout Repository
+- Load Production Secrets
+- Deploy Flask Application
+
+---
+
+# GitHub Secrets
+
+## Repository Secrets
+
+### Application
+
+```
+MONGO_URI
+
+SECRET_KEY
+```
+
+---
+
+### Staging
+
+```
+STAGING_HOST
+
+STAGING_USER
+
+DEPLOY_KEY
+
+API_TOKEN
+```
+
+---
+
+### Production
+
+```
+PROD_HOST
+
+PROD_USER
+
+PROD_DEPLOY_KEY
+
+PROD_API_TOKEN
+```
+
+---
+
+# Branch Strategy
+
+```
+main
+```
+
+Production-ready code
+
+```
+staging
+```
+
+Testing and validation before production
+
+---
+
+# Deployment Flow
+
+```
+Developer
+
+↓
+
+Push Code
+
+↓
+
+GitHub
+
+↓
+
+GitHub Actions
+
+↓
+
+Build
+
+↓
+
+Install Dependencies
+
+↓
+
+Run Tests
+
+↓
+
+If Success
+
+↓
+
+Deploy to Staging
+```
+
+After Release
+
+```
+GitHub Release
+
+↓
+
+GitHub Actions
+
+↓
+
+Production Deployment
+```
+
+---
+
+# AWS Environment
+
+Operating System
+
+```
+Amazon Linux 2023
+```
+
+Application Server
+
+```
+Flask
+```
+
+Database
+
+```
+MongoDB Atlas
+```
+
+---
+
+# Security
+
+Sensitive values are stored using GitHub Repository Secrets.
+
+Examples
+
+- MongoDB URI
+- Secret Key
+- API Tokens
+- Deployment Keys
+- Server Information
+
+No credentials are stored inside the repository.
+
+---
+
+# Testing
+
+Framework
+
+```
+pytest
+```
+
+Test Cases
+
+- Home Page
+- Add Student
+- Update Student
+- Delete Student
+
+---
+
+# Code Quality
+
+Tools
+
+- Black
+- Bandit
+- Pylint
+
+---
+
+# Continuous Integration
+
+Every push automatically
+
+- Installs dependencies
+- Runs unit tests
+- Validates build
+
+---
+
+# Continuous Deployment
+
+### Staging
+
+Automatic deployment after successful build from the **staging** branch.
+
+### Production
+
+Automatic deployment after publishing a **GitHub Release**.
+
+---
+
+# Screenshots
+
+Include screenshots of
+
+- Flask Application
+- Jenkins Dashboard
+- Jenkins Pipeline
+- GitHub Actions Workflow
+- Successful Build
+- Successful Tests
+- Staging Deployment
+- Production Deployment
+- MongoDB Atlas
+
+---
+
+# Author
+
+**Mohd Shahban**
+
+Fullstack Engineer(Java+Devops)
+
+GitHub
+
+https://github.com/sahbu90
+
+---
+
+# License
+
+This project is developed for educational and DevOps learning purposes.
