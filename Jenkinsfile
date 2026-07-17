@@ -53,7 +53,7 @@ Build Number: ${env.BUILD_NUMBER}
 Build URL:
 ${env.BUILD_URL}
 """,
-                to: "ayush.gautam071997@gmail.com"
+                to: "mohd.shahban9573@gmail.com"
             )
         }
 
@@ -68,7 +68,7 @@ Build Number: ${env.BUILD_NUMBER}
 Build URL:
 ${env.BUILD_URL}
 """,
-                to: "ayush.gautam071997@gmail.com"
+                to: "mohd.shahban9573@gmail.com"
             )
         }
 

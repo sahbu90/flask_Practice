@@ -1,5 +1,5 @@
-Started by user Ayush Gautam
-Obtained Jenkinsfile from git https://github.com/Ayushgautam2007/CI-CD-Project.git
+Started by user Mohd Shahban
+Obtained Jenkinsfile from git https://github.com/sahbu90/flask_Practice.git
 [Pipeline] Start of Pipeline
 [Pipeline] node
 Running on Jenkins in /var/lib/jenkins/workspace/CI-CD Project
@@ -12,11 +12,11 @@ The recommended git tool is: NONE
 No credentials specified
  > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/CI-CD Project/.git # timeout=10
 Fetching changes from the remote Git repository
- > git config remote.origin.url https://github.com/Ayushgautam2007/CI-CD-Project.git # timeout=10
-Fetching upstream changes from https://github.com/Ayushgautam2007/CI-CD-Project.git
+ > git config remote.origin.url https://github.com/sahbu90/flask_Practice.git # timeout=10
+Fetching upstream changes from https://github.com/sahbu90/flask_Practice.git
  > git --version # timeout=10
  > git --version # 'git version 2.52.0'
- > git fetch --tags --force --progress -- https://github.com/Ayushgautam2007/CI-CD-Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/sahbu90/flask_Practice.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
 Checking out Revision 967e6f40fdcdd75771442bf9753cc439db0493f5 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
@@ -44,10 +44,10 @@ Commit message: "Update start_flask.sh"
 ++ '[' '!' nondestructive = nondestructive ']'
 ++ case "$(uname)" in
 +++ uname
-++ export 'VIRTUAL_ENV=/var/lib/jenkins/workspace/CI-CD Project/venv'
-++ VIRTUAL_ENV='/var/lib/jenkins/workspace/CI-CD Project/venv'
+++ export 'VIRTUAL_ENV=/var/lib/jenkins/workspace/flask_Practice Project/venv'
+++ VIRTUAL_ENV='/var/lib/jenkins/workspace/flask_Practice Project/venv'
 ++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
-++ PATH='/var/lib/jenkins/workspace/CI-CD Project/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
+++ PATH='/var/lib/jenkins/workspace/flask_Practice Project/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
 ++ export PATH
 ++ VIRTUAL_ENV_PROMPT='(venv) '
 ++ export VIRTUAL_ENV_PROMPT
@@ -110,8 +110,8 @@ Requirement already satisfied: mdurl~=0.1 in ./venv/lib64/python3.12/site-packag
 ++ '[' '!' nondestructive = nondestructive ']'
 ++ case "$(uname)" in
 +++ uname
-++ export 'VIRTUAL_ENV=/var/lib/jenkins/workspace/CI-CD Project/venv'
-++ VIRTUAL_ENV='/var/lib/jenkins/workspace/CI-CD Project/venv'
+++ export 'VIRTUAL_ENV=/var/lib/jenkins/workspace/flask_Practice Project/venv'
+++ VIRTUAL_ENV='/var/lib/jenkins/workspace/flask_Practice Project/venv'
 ++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 ++ PATH='/var/lib/jenkins/workspace/CI-CD Project/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin'
 ++ export PATH
@@ -125,9 +125,9 @@ Requirement already satisfied: mdurl~=0.1 in ./venv/lib64/python3.12/site-packag
 ++ hash -r
 + python -m pytest -v
 ============================= test session starts ==============================
-platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.6.0 -- /var/lib/jenkins/workspace/CI-CD Project/venv/bin/python
+platform linux -- Python 3.12.13, pytest-9.1.1, pluggy-1.6.0 -- /var/lib/jenkins/workspace/flask_Practice Project/venv/bin/python
 cachedir: .pytest_cache
-rootdir: /var/lib/jenkins/workspace/CI-CD Project
+rootdir: /var/lib/jenkins/workspace/flask_Practice Project
 collecting ... collected 4 items
 
 test_app.py::test_home_page PASSED                                       [ 25%]
@@ -157,27 +157,27 @@ Pipeline execution finished.
 Sending mail from default account using System Admin e-mail address
 messageContentType = text/html; charset=UTF-8
 Adding recipients from project recipient list
-Analyzing: ayush.gautam071997@gmail.com
-Looking for: ayush.gautam071997@gmail.com
+Analyzing: mohd.shahban9573@gmail.com
+Looking for: mohd.shahban9573@gmail.com
 	starting at: 0
 	firstFoundIdx: 0
-	firstFoundIdx-substring: ayush.gautam071997@gmail.com
+	firstFoundIdx-substring: mohd.shahban9573@gmail.com
 	=> found type: 0
-Analyzing: ayush.gautam071997@gmail.com
-Looking for: ayush.gautam071997@gmail.com
+Analyzing: mohd.shahban9573@gmail.com
+Looking for: mohd.shahban9573@gmail.com
 	starting at: 0
 	firstFoundIdx: 0
-	firstFoundIdx-substring: ayush.gautam071997@gmail.com
+	firstFoundIdx-substring: mohd.shahban9573@gmail.com
 	=> found type: 0
-Analyzing: ayush.gautam071997@gmail.com
-Looking for: ayush.gautam071997@gmail.com
+Analyzing: mohd.shahban9573@gmail.com
+Looking for: mohd.shahban9573@gmail.com
 	starting at: 0
 	firstFoundIdx: 0
-	firstFoundIdx-substring: ayush.gautam071997@gmail.com
+	firstFoundIdx-substring: mohd.shahban9573@gmail.com
 	=> found type: 0
 Adding recipients from trigger recipient list
 Successfully created MimeMessage
-Sending email to: ayush.gautam071997@gmail.com
+Sending email to: mohd.shahban9573@gmail.com
 DEBUG: getProvider() returning jakarta.mail.Provider[TRANSPORT,smtp,org.eclipse.angus.mail.smtp.SMTPTransport,Oracle]
 DEBUG SMTP: need username and password for authentication
 DEBUG SMTP: protocolConnect returning false, host=smtp.gmail.com, user=jenkins, password=<null>
@@ -219,7 +219,7 @@ DEBUG SMTP: Found extension "ENHANCEDSTATUSCODES", arg ""
 DEBUG SMTP: Found extension "PIPELINING", arg ""
 DEBUG SMTP: Found extension "CHUNKING", arg ""
 DEBUG SMTP: Found extension "SMTPUTF8", arg ""
-DEBUG SMTP: protocolConnect login, host=smtp.gmail.com, user=ayush.gautam071997@gmail.com, password=<non-null>
+DEBUG SMTP: protocolConnect login, host=smtp.gmail.com, user=mohd.shahban9573@gmail.com, password=<non-null>
 DEBUG SMTP: Attempt to authenticate using mechanisms: LOGIN PLAIN DIGEST-MD5 NTLM XOAUTH2 
 DEBUG SMTP: Using mechanism LOGIN
 DEBUG SMTP: AUTH LOGIN command trace suppressed
@@ -228,15 +228,15 @@ DEBUG SMTP: use8bit false
 MAIL FROM:<nobody@nowhere>
 250 2.1.0 OK 5a478bee46e88-30f0b813c4dsm7556225eec.7 - gsmtp
 DEBUG SMTP: sendPartial set
-RCPT TO:<ayush.gautam071997@gmail.com>
+RCPT TO:<mohd.shahban9573@gmail.com>
 250 2.1.5 OK 5a478bee46e88-30f0b813c4dsm7556225eec.7 - gsmtp
 DEBUG SMTP: Verified Addresses
-DEBUG SMTP:   ayush.gautam071997@gmail.com
+DEBUG SMTP:   mohd.shahban9573@gmail.com
 DATA
 354 Go ahead 5a478bee46e88-30f0b813c4dsm7556225eec.7 - gsmtp
 Date: Thu, 2 Jul 2026 10:42:20 +0000 (UTC)
 From: address not configured yet <nobody@nowhere>
-To: ayush.gautam071997@gmail.com
+To: mohd.shahban9573@gmail.com
 Message-ID: <945589658.10.1782988943607@ip-172-31-0-200.ap-south-1.compute.internal>
 Subject: SUCCESS: CI-CD Project #15
 MIME-Version: 1.0
