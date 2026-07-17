@@ -34,7 +34,7 @@ This project demonstrates complete CI/CD implementation using both **Jenkins** a
 - Git & GitHub
 - GitHub Actions
 - Jenkins
-- AWS EC2 (Amazon Linux 2023)
+- AWS EC2
 - Linux Shell
 
 ---
@@ -234,7 +234,7 @@ GitHub Webhook
 
 ## Jenkins Deployment
 
-Deploys Flask Application on AWS EC2 (Amazon Linux 2023)
+Deploys Flask Application on AWS EC2
 
 ---
 
